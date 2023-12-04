@@ -1,8 +1,9 @@
 {
   "index": "Introduction",
-  "How-To": "Basic Commands",
+  "BasicCommands": "Basic Commands",
   "CppStarter": "Getting Started",
   "contributing": "Contributing", 
+  "Templates": "Templates", 
   "about": {
     "title": "About",
     "type": "page"
