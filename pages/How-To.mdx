@@ -1,0 +1,89 @@
+# Basic Commands
+
+## frate new
+
+The frate new command will help you initialize a new project
+
+```bash
+frate new /path/to/project
+```
+if you don't want to be prompted for values,
+you can use default values
+```bash
+frate new -d /path/to/project
+```
+
+## frate run
+To run your newly created program
+
+```bash
+frate run
+```
+---
+
+## frate add
+
+in frate we use frate [action] [state] to modify things
+so to add a package to your project we can say
+
+#### add a package
+```bash
+frate add package SDL2
+```
+
+or
+
+```bash
+frate add p cxxopts
+```
+
+#### add a compile mode
+
+here we are adding a define macro for you
+
+```cpp
+#ifdef DEBUG
+  std::cout <<  "I will only run in debug mode" << std::endl;
+#endif
+```
+
+The default modes are Debug, Test and Release, so you don't  have to add these
+
+
+```bash
+frate add mode SpecialMode 
+```
+
+
+## frate remove
+
+similar to add, we can remove packages, modes, and it works on the same principle of 
+
+frate [action] [state]
+
+#### remove a package
+```bash
+frate remove package SDL2
+frate rm p SDL2
+```
+
+#### remove a compile mode
+```bash
+frate remove mode SpecialMode
+```
+
+## frate list
+
+#### list packages
+to list all the installed packages 
+```bash
+frate list packages
+```
+
+#### list modes
+to list all of the compile modes available
+```bash
+frate list modes
+```
+
+
