@@ -1,0 +1,16 @@
+
+## Building from source
+
+```bash
+git clone https://github.com/frate-dev/frate.git
+cd frate
+git checkout dev
+cmake -DCMAKE_BUILD_TYPE=Debug ./
+```
+
+## Building a project
+
+```bash
+# Builds the project and generates a compiler_commands.json for clangd
+bear -- make -j<jobs>
+```

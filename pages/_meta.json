@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
   "CppStarter": "Getting Started",
-  "advanced": "Advanced (A Folder)",
+  "contributing": "Contributing",
   "about": {
     "title": "About",
     "type": "page"

@@ -1,0 +1,38 @@
+# Prerequisites
+
+Unfortunately, we use C++20 features and it does require a slightly bleeding edge compiler in order to build this project.
+
+minimum compiler versions
+```bash
+clang 16
+or 
+gcc 13
+```
+
+[Automatic llvm installation script](https://apt.llvm.org/)
+
+required for even ubuntu 22.04
+
+## Ubuntu
+```bash
+# Automatic llvm install script
+# Downloads the latest stable version
+bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+
+sudo apt install cmake build-essential bear
+
+```
+
+
+## Arch
+```bash
+sudo pacman -Sy base-devel clang cmake bear
+```
+
+## Fedora
+```bash
+# TODO: Figure this out
+```
+
+
+
