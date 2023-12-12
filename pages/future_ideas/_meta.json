@@ -1,4 +1,4 @@
 {
   "build_time_tests": "build time tests",
-  "cpack": "cpack",
+  "cpack": "cpack"
 }
