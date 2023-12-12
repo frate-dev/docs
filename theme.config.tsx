@@ -1,6 +1,6 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
-import Logo  from './assets/logo.png'
+import Logo  from '/public/logo.svg'
 const config: DocsThemeConfig = {
   logo: <div style={{display:"flex", alignItems:"center", gap:"1rem", fontSize:"1.25rem", fontWeight:"bold"}}><img style={{objectFit:"contain", width:"3rem"}} src={Logo.src} alt="Frate Logo" />Frate</div>,
   project: {

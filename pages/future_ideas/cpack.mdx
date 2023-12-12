@@ -1,0 +1,71 @@
+# CPack stuff.
+
+
+```cmake
+set(CPACK_PACKAGE_NAME "MyComplexApp")
+set(CPACK_PACKAGE_VENDOR "MyCompany")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "My Complex Application - An example of complex CPack Usage")
+set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_PACKAGE_CONTACT "contact@mycompany.com")
+
+# --- General Settings ---
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+set(CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
+
+# --- DEB Specific Settings ---
+set(CPACK_DEBIAN_PACKAGE_SECTION "devel")
+set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
+set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "libstdc++6, libc6")
+set(CPACK_DEBIAN_PACKAGE_SUGGESTS "myapp-doc")
+set(CPACK_DEBIAN_PACKAGE_RECOMMENDS "myapp-extras")
+set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://myapp.example.com")
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+
+# --- Compression and Archive Settings ---
+set(CPACK_ARCHIVE_COMPONENT_INSTALL ON)
+set(CPACK_DEBIAN_COMPRESSION_TYPE "gzip")
+set(CPACK_DEBIAN_PACKAGE_CONTROL_STRICT_PERMISSION TRUE)
+
+# --- Scripting and Hooks ---
+set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA 
+    "${CMAKE_CURRENT_SOURCE_DIR}/postinst;${CMAKE_CURRENT_SOURCE_DIR}/prerm")
+
+# --- Component Installation ---
+set(CPACK_COMPONENTS_ALL libraries headers)
+set(CPACK_COMPONENT_LIBRARIES_DISPLAY_NAME "Libraries")
+set(CPACK_COMPONENT_HEADERS_DISPLAY_NAME "Header Files")
+set(CPACK_COMPONENT_LIBRARIES_DESCRIPTION 
+    "Runtime libraries required for MyComplexApp")
+set(CPACK_COMPONENT_HEADERS_DESCRIPTION
+    "C++ headers for MyComplexApp development")
+set(CPACK_COMPONENT_LIBRARIES_GROUP "Runtime")
+set(CPACK_COMPONENT_HEADERS_GROUP "Development")
+set(CPACK_COMPONENT_GROUP_RUNTIME_DESCRIPTION 
+    "All runtime components needed to run the application")
+set(CPACK_COMPONENT_GROUP_DEVELOPMENT_DESCRIPTION 
+    "All development components for building applications")
+set(CPACK_COMPONENT_GROUP_RUNTIME_EXPANDED ON)
+```
+
+# CPack Generators
+
+```lua
+-- general cpack options
+cpack({
+  package_name = "MyComplexApp",
+  package_vendor = "MyCompany",
+  package_description_summary = "My Complex Application - An example of complex CPack Usage",
+  package_version = "1.0.0",
+  package_contact = "something@something.com",
+  resource_file_license = "${CMAKE_CURRENT_SOURCE_DIR}/License.txt",
+  resource_file_readme = "${CMAKE_CURRENT_SOURCE_DIR}/README.md",
+})
+-- package specific details
+Ubuntu({
+  package_depends= {},
+  package_suggests = {},
+  package_homepage = "",
+  compression_type = ""
+})
+```

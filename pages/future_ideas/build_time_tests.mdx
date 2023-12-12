@@ -1,0 +1,39 @@
+
+
+```lua
+local cmake_str = ""
+
+check_compiler_features({
+ {
+  file = "special_feature.cpp",
+  feature = "COMPILER_SUPPORTS_CXX11",
+  callback
+ }
+})
+
+if (get_os() == "linux") then 
+  check_compiles({
+    {
+      file = "file.cpp",
+      cmake_file = "./test/CMakeList.txt",
+      callback = change_cmake_list
+    }
+  })
+
+  check_compiler_flag({
+    flag = ""
+    callback = func
+  })
+  get_cpu_info()
+
+  check_defined(
+    {
+    symbol = "string",
+    file = "file.hpp", 
+    callback = func
+    }
+  )
+end
+
+return cmake_str 
+```
