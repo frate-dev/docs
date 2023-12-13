@@ -81,3 +81,59 @@ install(TARGETS {{project_name}} DESTINATION bin)
 
 ```
 
+
+
+## Lua API
+
+Along with these templates we allow you can fully modify the render functions i.e. `packages("")` or `flags("")` along with this you can also create your own lua callbacks along with a couple helper functions which we provided
+
+### Helper Functions
+
+```lua
+-- This function gets the current working directory of the project
+-- @return string
+function frate.get_path()
+
+-- This function gets all the paths recursively in a directory provided
+-- @param path string
+-- @return table
+function frate.get_paths_recurse(path)
+
+-- This function gets json data from a url and returns a table
+-- @param url string
+-- @return table
+function frate.fetch_json(url)
+
+-- This function gets text data from a url and returns a string
+-- @param url string
+-- @return string
+function frate.fetch_text(url)
+
+-- This function prints a table with auto intentation
+-- *This will not work on objects like the global project table currently*
+-- @param table table
+function frate.print_table(table)
+-- @example
+print_table({a = 1, b = 2, c = {d = 3, e = 4}})
+-- a : 1
+-- b : 2
+-- c :
+--   d : 3
+--   e : 4
+
+-- This function replaces keys in a string with values from a table
+-- *Also once again this will not work on objects like the global project table currently, each table must be created in that instance*
+-- @param string string
+-- @param table table
+-- @return string
+function frate.format(string, table)
+-- @example
+format("Hello, my name is {%name%}", {name = "John"})
+-- Hello, my name is John
+
+-- This function gets the current build operating system string
+-- @returns string of either(windows32, windows64, linux, macos, or unknown)
+function frate.get_os()
+
+```
+
