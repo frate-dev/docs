@@ -1,0 +1,30 @@
+# Templates 
+
+Templates provide frate a way of providing generic CMake
+files that can be used to generate a project.
+
+
+## Templating Basics
+
+```cmake
+cmake_minimum_required(VERSION {{version}})
+
+project(
+    {{project_name}}
+    VERSION {{project_version}}
+    {{%if lang == "cpp"%}}LANGUAGES CXX
+    {{%else if lang == "c"%}}LANGUAGES C
+    {{%endif%}}
+)
+set(${SOURCE}
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/main.{{%if lang == "cpp"%}}cpp{{%else if lang == "c"%}}c{{%endif%}
+)
+add_executable({{project_name}} ${SOURCE})
+```
+
+It doesn't seem easier than just writing the CMake file, but
+it allows library developers to provide a template that can
+be easily used by the user. It will automatically fit in with
+the rest of the project, and allows the user to be able to modify the template to their liking.
+It also gives the user the powers of frate for automatic package management.
+
